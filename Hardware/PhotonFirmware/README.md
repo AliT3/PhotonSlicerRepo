@@ -1,0 +1,1 @@
+This is the firmware for the Dark Materials Photon SLA printer. Written in C to be run on the Arduino UNO

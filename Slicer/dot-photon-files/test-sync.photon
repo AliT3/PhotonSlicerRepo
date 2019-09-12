@@ -1,0 +1,20 @@
+:HEADER:
+protocol-version: "1.0";
+estimated-time: 100;
+model-name: "Sync Test Square";
+layer-height: 1;
+:END HEADER:
+
+:BODY:
+:SETUP:
+:END SETUP:
+
+:LAYER:
+LASER: ON;
+SET_LASER_POSITION: 0 100;
+SET_LASER_POSITION: 0 -100;
+:END LAYER:
+
+:COMPLETE:
+:END COMPLETE:
+:END BODY:

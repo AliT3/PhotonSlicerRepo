@@ -1,0 +1,38 @@
+Spec for the Computer to printer control protocol i.e the file format used to send the model info
+
+:HEADER: (general metadata about the model and file format)
+protocol-version: <version_num>;
+estimated-time: <time_estimate>;
+model-name: <model_name>;
+layer-height: <layer_height>;
+:END HEADER:
+
+:BODY: (printing instructions)
+:SETUP: (initial setup configuration steps)
+LASER: OFF;
+SET_LASER_POSITION: 0 0;
+:END SETUP:
+
+:LAYER: (instructions for a layer, example for a 10cm x 10cm square is given)
+SET_LASER_POSITION: -50 -50;
+LASER: ON;
+SET_LASER_POSITION: 50 -50;
+SET_LASER_POSITION: 50 50;
+SET_LASER_POSITION: -50 50;
+SET_LASER_POSITION: -50 -50;
+LASER: OFF;
+:END LAYER:
+
+:COMPLETE: (final teardown step once print is complete)
+LASER: OFF;
+SET_LASER_POSITION: 0 0;
+:END COMPLETE:
+:END BODY:
+
+
+
+
+
+--INSTRUCTION TYPES--
+LASER: <ON|OFF> (tells the laser whether to turn on or off)
+SET_LASER_POSITION: <X> <Y> (tells the laser dot to move to position x,y relative to center e.g, 0,0 is the middle, -1,0 is 1 millimeter left)
